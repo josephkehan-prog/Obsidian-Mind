@@ -1,0 +1,9 @@
+# Nested repo — reference only, not part of this vault
+everything-claude-code/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
