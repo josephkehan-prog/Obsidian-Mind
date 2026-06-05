@@ -40,10 +40,31 @@ pip install pymupdf             # PDF fallback
 ### 2. Open the vault in Claude Code
 
 ```bash
-claude /path/to/this/vault
+claude "C:\Users\19172\Desktop\Obsidian Mind"   # Windows
+claude /path/to/Obsidian-Mind                   # macOS / Linux
 ```
 
 `CLAUDE.md` at the vault root is auto-loaded — Claude knows the full wiki system immediately.
+
+### Obsidian Local REST API (recommended)
+
+Install the [Local REST API](https://github.com/coddingtonbear/obsidian-local-rest-api) plugin in Obsidian (runs on `localhost:27123`), then wire `@cyanheads/obsidian-mcp-server` into Claude Code:
+
+```json
+// ~/.claude/settings.json  →  mcpServers
+{
+  "obsidian-mind": {
+    "command": "npx",
+    "args": ["-y", "@cyanheads/obsidian-mcp-server"],
+    "env": {
+      "OBSIDIAN_API_URL": "http://localhost:27123",
+      "OBSIDIAN_API_KEY": "<your-api-key>"
+    }
+  }
+}
+```
+
+This lets Claude read and write vault notes directly through Obsidian's API — the right tool for vault operations. (`claude mcp serve` is a different use case: it exposes Claude Code's own tools to an external client.)
 
 ### 3. Add a document
 
