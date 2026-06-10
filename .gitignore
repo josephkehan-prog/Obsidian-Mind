@@ -13,3 +13,6 @@ Thumbs.db
 
 # MCP config — contains Local REST API bearer token
 .mcp.json
+
+# Local REST API plugin settings — contains API key + TLS private key
+.obsidian/plugins/obsidian-local-rest-api/data.json
